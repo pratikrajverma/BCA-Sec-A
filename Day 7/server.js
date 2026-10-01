@@ -3,6 +3,8 @@ const app = express()
 
 const port = 3000
 
+import morgan from "morgan";
+
 // app.use(express.static('public'))
 
 // app.use(express.json())
@@ -12,7 +14,10 @@ const port = 3000
 //     extended:true
 // }))
 
+app.use(morgan('dev'))
 
+
+app.use(loggerMiddleware)
 
 function middleware1(req,res,next){
     console.log('this is middleware first')
@@ -25,6 +30,7 @@ function middleware1(req,res,next){
 function loggerMiddleware(req,res,next){
     console.log(req.method)
     console.log(req.url)
+    console.log(res.statusCode)
 
     next()
 }
@@ -41,9 +47,11 @@ app.post('/user', loggerMiddleware , middleware1  , (req,res)=>{
 })
 
 
-app.post('/about', (req,res)=>{
+app.get('/about', (req,res)=>{
 
         console.log('this is about logic')
+
+        res.send('<h1>this is about logic...</h1>')
 })
 
 
