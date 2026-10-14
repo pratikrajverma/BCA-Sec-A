@@ -27,7 +27,6 @@ app.get('/user', (req, res) => {
 })
 
 
-
 function checkRoutes(req,res){
     res.json({
         message:'this routes is not available.....'
