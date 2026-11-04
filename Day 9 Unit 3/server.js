@@ -1,6 +1,8 @@
+
+
 // show dbs 
 // use BCAsectionA
-db
+// db
 
 // db.createCollection('students')
 
@@ -123,3 +125,36 @@ db.students.updateMany(
     {$set : {course : 'BCA'}}
 
 )
+
+
+
+db.students.find({
+    age: {$gt : 20}
+})
+
+db.students.find({
+    gender : {$eq : 'female'}
+})
+
+db.students.find({
+    $and : [{age : {$gt : 26}}, {gender: {$eq : 'male'}} ]
+})
+db.students.find({
+    $or : [{age : {$gt : 26}}, {gender: {$eq : 'male'}} ]
+})
+
+
+
+db.students.find(
+    {},
+    {name: 1,age:1,_id:0}
+)
+
+db.students.find({
+    age: {$lt : 30}
+}).sort({age:-1})
+
+
+db.students.find().skip(3)
+
+db.students.find().limit(3)
