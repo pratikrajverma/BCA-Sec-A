@@ -5,6 +5,12 @@ const createUser = async (req,res)=>{
     try {
         const {name, age, gender, course} = req.body
 
+        console.log(name, age, gender, course)
+
+         
+
+
+
         if(!name || !age || !gender || !course){
             return res.status(404).json({
                 message:'data did not found...',
@@ -17,6 +23,8 @@ const createUser = async (req,res)=>{
             name, age, gender, course
         })
 
+        console.log(user)
+
 
         res.status(201).json({
             message: 'user has created successfully....',
@@ -27,9 +35,10 @@ const createUser = async (req,res)=>{
 
 
     } catch (error) {
+        console.log(error)
         res.status(500).json({
-            message: 'failed to create user....',
-            success:false
+            success:false,
+            message: 'failed to create user....',error
         })
     }
 }

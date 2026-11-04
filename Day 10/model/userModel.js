@@ -2,24 +2,34 @@ import mongoose  from "mongoose";
 
 const userSchema = new mongoose.Schema({
     name : {
-        type : 'String',
+        type : String,
         require:true
     },
     age: {
-        type: 'Number',
+        type: String,
 
     },
     gender : {
-        type:'String'
+        type:String
     },
     course : {
-        type:'String'
+        type: String
     }
 })
 
 const User = mongoose.model('User', userSchema)
+
 export default User
 
 
 
 
+ db.users.insertOne({
+   
+        name:"Ankit",
+        age: 25, 
+        gender:"male",
+        course: "BTech"
+    
+
+})
