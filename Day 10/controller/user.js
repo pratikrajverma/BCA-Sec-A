@@ -47,7 +47,7 @@ const createUser = async (req,res)=>{
 const readUser  = async (req,res)=>{
     try {
         let user = await User.find({
-            gender : {$eq : 'male'}
+            // gender : {$eq : 'male'}
         })
 
         if(!user){
