@@ -1,5 +1,5 @@
 import express from "express";
-import { createUser, readUser, updateUser } from "../controller/user.js";
+import { createUser, deleteUser, readUser, updateUser } from "../controller/user.js";
 const router = express.Router()
 
 
@@ -11,4 +11,6 @@ router.get('/user', readUser)
 router.put('/user/:id', updateUser)
 
 
-export default router
+router.delete('/user/:id', deleteUser)
+
+export default router 

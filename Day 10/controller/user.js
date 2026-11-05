@@ -1,4 +1,5 @@
 
+ 
 import User from '../model/userModel.js'
 
 const createUser = async (req,res)=>{
@@ -123,4 +124,29 @@ const updateUser = async(req,res)=>{
     }
 }
 
-export {createUser, readUser ,updateUser}
+
+const deleteUser = async (req,res)=>{
+    try {
+        const {id} = req.params
+
+       const user =  await User.findByIdAndDelete({},id)
+
+       res.status(200).json({
+        message:'user deleted successfully...',
+        success:true,
+        user
+       })
+
+
+
+    } catch (error) {
+        res.status(500).json({
+            message:'failed to delete user...',error,
+            success:false,
+            
+        })
+    }
+}
+
+
+export {createUser, readUser ,updateUser , deleteUser}
