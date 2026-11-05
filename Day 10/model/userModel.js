@@ -24,12 +24,4 @@ export default User
 
 
 
- db.users.insertOne({
-   
-        name:"Ankit",
-        age: 25, 
-        gender:"male",
-        course: "BTech"
-    
-
-})
+ 
