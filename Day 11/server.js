@@ -38,7 +38,7 @@ db.users.insertMany([
         name: 'Nandan',
         age:37,
         gender:'male',
-        cgpa:9.5,
+        cgpa:10,
         course:'BTech'
     }
 ])
@@ -61,3 +61,53 @@ db.users.aggregate([
         }
     }
 ])
+
+
+db.users.aggregate([
+    {
+        $project : {
+            name: 1,
+            gender:1,
+            _id : 0
+        }
+    }
+])
+
+
+db.users.aggregate([
+    {
+          $match : {
+            course : {
+                $in : ['BTech', 'BCA']
+            }
+          }
+    },
+
+    {
+        $project : {
+            name : 1,
+            cgpa:1,
+            _id:0
+        }
+    },
+
+    {
+        $limit : 2
+    }
+,
+    {
+        $sort: {
+            cgpa : 1
+        }
+    }
+
+
+])
+
+
+
+db.users.createIndex({
+    name : 1
+})
+
+db.users.getIndexes()
