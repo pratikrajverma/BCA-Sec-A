@@ -1,7 +1,13 @@
 import express from "express";
 const app = express()
 import connectDB from "./database/mongodb.js";
+import userRouter from "./routes/userRouter.js";
 
+
+
+app.use(userRouter)
+
+app.use(express.json())
 
 connectDB()
 
