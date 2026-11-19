@@ -12,7 +12,7 @@ const signup = async (req,res)=>{
                 message: 'data not found for signup',
                 success:false
             })
-        }
+        } 
 
         const hashpassword = await bcrypt.hash(password, 10)
 
