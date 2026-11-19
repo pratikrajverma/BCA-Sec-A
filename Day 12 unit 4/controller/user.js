@@ -38,7 +38,54 @@ const signup = async (req,res)=>{
     }
 }
 
+const login = async (req,res)=>{
+    try {
+        const {email, password} = req.body
+
+        if(!email || !password){
+            return res.status(404).json({
+                message:'data not found for login',
+                success:false
+            })
+        }
+
+        let user = await User.findOne({email})
+
+        if(!user){
+            return res.status(401).json({
+                success:false,
+                message:'invalid email id , Try again'
+            })
+        }
+
+        if(await bcrypt.compare(password, user.password)){
+
+            return res.status(200).json({
+                message:'login successfully...',
+                success:true,
+                user
+            })
+        }else{
+            return res.status(401).json({
+                success:false,
+                message : 'invalid password'
+            })
+        }
 
 
 
-export {signup}
+
+    } catch (error) {
+        console.log(error)
+        
+        return res.status(500).json({
+            message:'internal server error',
+            success:false
+        })
+    }
+}
+
+
+
+
+export {signup,login}
