@@ -5,9 +5,9 @@ import userRouter from "./routes/userRouter.js";
 
 
 
+app.use(express.json())
 app.use(userRouter)
 
-app.use(express.json())
 
 connectDB()
 

@@ -1,5 +1,7 @@
 import User from "../model/userModel.js"
 
+import bcrypt from 'bcrypt'
+
 const signup = async (req,res)=>{
     try {
         const {name, email, password, role} = req.body
@@ -12,8 +14,10 @@ const signup = async (req,res)=>{
             })
         }
 
+        const hashpassword = await bcrypt.hash(password, 10)
+
         let user = await User.create({
-            name, email , password, role
+            name, email , password : hashpassword, role
         })
 
 
@@ -25,7 +29,7 @@ const signup = async (req,res)=>{
 
 
     } catch (error) {
-
+         console.log(error)
             return res.status(500).json({
                 message:'internal server error',
                 success:false
