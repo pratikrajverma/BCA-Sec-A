@@ -19,6 +19,7 @@ const showMarks =async (req,res)=>{
     }
 }
 
+
 const createMarks =async   (req,res)=>{
     try {
 
@@ -41,4 +42,5 @@ const createMarks =async   (req,res)=>{
     }
 }
 
+export { showMarks, createMarks}
 
