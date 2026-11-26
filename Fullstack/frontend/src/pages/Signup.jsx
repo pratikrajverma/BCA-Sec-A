@@ -1,11 +1,16 @@
 import React, { useState } from "react";
-import axiosInstance from "../axiosInstance";
+// import axiosInstance from "../axiosInstance";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
 const Signup = () => {
 
+     
+
     const navigate = useNavigate();
+
+ 
+
 
     const [formData, setFormData] = useState({
         name: "",
@@ -37,8 +42,8 @@ const Signup = () => {
             navigate("/login");
 
         } catch (error) {
-
-            console.log(error);
+            console.error(error)
+            console.log(error.message);
 
         }
 
@@ -47,6 +52,8 @@ const Signup = () => {
 
     return (
         <div>
+
+         
 
             <h2>Signup Page</h2>
 

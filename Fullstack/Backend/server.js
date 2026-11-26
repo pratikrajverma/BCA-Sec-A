@@ -3,10 +3,11 @@ const app = express()
 import connectDB from "./database/mongodb.js";
 import userRouter from "./routes/userRouter.js";
 import marksRouter from "./routes/marksRoutes.js";
+import cors from 'cors'
 
-
-
-
+app.use(cors({
+    origin: "*"
+}))
 
 app.use(express.json())
 

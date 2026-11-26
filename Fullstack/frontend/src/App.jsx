@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ShowMarks from "./components/ShowMarks";
 
 function App() {
 
@@ -32,7 +33,14 @@ function App() {
           path="/signup"
           element={<Signup />}
         />
+  
 
+    <Route
+      path="/showmarks"
+      element={<ShowMarks/>}
+
+    />
+ 
         <Route
           path="/login"
           element={<Login />}

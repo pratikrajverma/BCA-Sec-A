@@ -31,6 +31,8 @@ const auth = async (req,res,next)=>{
 
         req.role = payload.role
 
+        req.userId = payload.userId
+
 
         next()
 

@@ -20,7 +20,7 @@ const Dashboard = () => {
             return;
         }
 
-        getProfile();
+         getProfile();
 
     }, []);
 
@@ -31,7 +31,7 @@ const Dashboard = () => {
             const token = localStorage.getItem("token");
 
             const response = await axios.get(
-                "https://full-stack-dashboard-2.onrender.com/profile",
+                "http://localhost:3000/dashboard",
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -79,6 +79,11 @@ const Dashboard = () => {
                         <p>
                             <strong>Role:</strong> {user.role}
                         </p>
+
+                        <button onClick={()=>navigate('/showmarks')}>ShowMarks</button>
+
+                        <br/>
+
 
                         <button onClick={handleLogout}>
                             Logout

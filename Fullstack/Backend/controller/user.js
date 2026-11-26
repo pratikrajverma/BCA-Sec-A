@@ -4,6 +4,10 @@ import bcrypt from 'bcrypt'
 
 import jwt from 'jsonwebtoken'
 
+import dotenv from 'dotenv'
+
+dotenv.config()
+
 
 const signup = async (req,res)=>{
     try {
@@ -71,7 +75,7 @@ const login = async (req,res)=>{
                     userId: user._id,
                     role : user.role
                 },
-                'bcaSecA',
+                process.env.jwtSecretKey,
                 {
                     expiresIn : '2h'
                 }

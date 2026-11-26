@@ -29,7 +29,7 @@ const Login = () => {
         formData
       );
 
-      console.log(response.data.token)
+      console.log(response.data)
 
       localStorage.setItem(
         "token",
@@ -38,10 +38,10 @@ const Login = () => {
 
 
 
-       navigate("/dashboard");
+      navigate("/dashboard");
 
     } catch (error) { 
-
+ 
       console.log(error);
 
     }
