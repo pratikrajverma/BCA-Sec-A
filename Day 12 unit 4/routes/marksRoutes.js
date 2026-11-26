@@ -6,8 +6,6 @@ const marksRouter = express.Router()
 
 marksRouter.get('/marks', auth, isStudent,  showMarks)
 
-
-
 marksRouter.post('/marks', auth, isTeacher ,  createMarks)
 
 
